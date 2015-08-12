@@ -20,7 +20,7 @@
 __version__ = '1.0.0'
 __author__ = 'ph03n1x'
 
-import b3, time, threading, re
+import b3
 import b3.events
 import b3.plugin
 
@@ -165,8 +165,9 @@ class NextmapPlugin(b3.plugin.Plugin):
         all = (', ').join(all.keys()).title()
         cmd.sayLoudOrPM(client, 'Available Maps: ^2%s' % all)
 
-
-    def cmd_cyclemap(self, data, client=None, cmd=None):
+            
+    # This will redeploy maprotate with consideration for this plugin.
+    def cmd_maprotate(self, data, client, cmd=None):
         """\
         Cycle to next map in rotation
         """
@@ -174,16 +175,6 @@ class NextmapPlugin(b3.plugin.Plugin):
             self.confirmMap()
         else:
             self.console.rotateMap()
-            
-##    # This will correct maprotate in the event it is used.
-##    def cmd_maprotate(self, data, client, cmd=None):
-##        """\
-##        Cycle to next map in rotation
-##        """
-##        if self._mapChanged:
-##            self.confirmMap()
-##        else:
-##            self.console.rotateMap()
             
         
 
